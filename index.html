@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <header>
-        <div class="app-title">
+    <header class="flex">
+        <div class="app-title flex-1">
             <h2>Movie Info Database</h2>
         </div>
-        <div class="search">
+        <div class="search flex-1">
             <form id="search-form">
                 <!-- <label class="form-label" for="search">Enter movie name</label> -->
                 <input name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
@@ -36,7 +36,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum. Nemo qui repudiandae temporibus assumenda autem.</p>
             </div>
         </container>
-        <container class="info">
+        <container class="info grid grid-cols-2">
             <div class="director">
                 <h3>Directed by:</h3>
                 <ul class="dir-list">
@@ -66,7 +66,7 @@
 
             </div>
         </container>
-        <container class="gif">
+        <container class="gif grid grid-cols-3">
             <div class="gif-one">
                 <img src="https://via.placeholder.com/300" alt="One" />
                 <p>Name of first actor</p>
