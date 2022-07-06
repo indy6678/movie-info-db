@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Movie Info Database</title>
+</head>
+
+<body>
+    <header>
+        <div class="app-title">
+            <h2>Movie Info Database</h2>
+        </div>
+        <div class="search">
+            <form id="search-form">
+                <!-- <label class="form-label" for="search">Enter movie name</label> -->
+                <input name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
+                <button type="submit" class="btn">Get Movie!</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <container class="movie">
+            <div class="poster">
+                <img src="https://via.placeholder.com/300x500" alt="Movie Poster" />
+            </div>
+            <div class="movie-title">
+
+            </div>
+            <div class="plot-desc">
+                <h3>And the plot thickens...</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum. Nemo qui repudiandae temporibus assumenda autem.</p>
+            </div>
+        </container>
+        <container class="info">
+            <div class="director">
+                <h3>Directed by:</h3>
+                <ul class="dir-list">
+                    <li>someone</li>
+                </ul>
+
+            </div>
+            <div class="actor">
+                <h3>Starring:</h3>
+                <ul class="actor-list">
+                    <li>someone else</li>
+                    <li>someone else's brother</li>
+                </ul>
+
+            </div>
+            <div class="rating">
+                <h3>MPAA Rating:</h3>
+
+            </div>
+            <div class="score">
+                <h3>As good as it gets:</h3>
+                <ul class="score-list">
+                    <li>Rotten Tomatoes</li>
+                    <li>MetaCritic</li>
+                    <li>Google Users</li>
+                </ul>
+
+            </div>
+        </container>
+        <container class="gif">
+            <div class="gif-one">
+                <img src="https://via.placeholder.com/300" alt="One" />
+                <p>Name of first actor</p>
+            </div>
+            <div class="gif-two">
+                <img src="https://via.placeholder.com/300" alt="Two" />
+                <p>Name of second actor</p>
+            </div>
+            <div class="gif-three">
+                <img src="https://via.placeholder.com/300" alt="Three" />
+                <p>Name of third actor</p>
+            </div>
+        </container>
+
+    </main>
+
+</body>
+
+</html>

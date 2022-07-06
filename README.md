@@ -1,1 +1,2 @@
-# movie-info-db
+# Movie Info Database
+
