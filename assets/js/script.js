@@ -18,7 +18,7 @@ function formSubmitHandler(event) {
 
 // API call
 function getMovie(movie){
-    var apiUrl = `http://www.omdbapi.com/?apikey=5af37e64&t=${movie}&plot=full`
+    var apiUrl = `https://www.omdbapi.com/?apikey=5af37e64&t=${movie}&plot=full`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
