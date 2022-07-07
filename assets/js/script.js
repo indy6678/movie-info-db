@@ -82,6 +82,12 @@ function displayMovieInfo(movieData) {
     var mpaaEl = document.querySelector("#rating");
 
     posterEl.setAttribute("src", movieData.Poster)
+    if(movieData.Poster==="N/A"){
+        posterEl.setAttribute("alt","")
+    }
+    else{
+        posterEl.setAttribute("alt",`the poster for ${movieData.Title}`)
+    }
     movieTitleEl.textContent = movieData.Title;
     plotEl.textContent = movieData.Plot;
     directorEl.textContent = movieData.Director
