@@ -41,7 +41,7 @@ function getMovie(movie){
                         // return "Sorry that's (probably) a TV show not a movie"
                         mainBodyEl.classList.add("hidden");
                         errorMessageEl.classList.remove("hidden");
-                        errorMessageEl.textContent = "Sorry, that's not a movie, please try again.";
+                        errorMessageEl.textContent = "Sorry, we couldn't find that movie, please double check your spelling and try again.";
                     }
                 }
                 else{
