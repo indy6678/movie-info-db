@@ -81,29 +81,21 @@ function displayMovieInfo(movieData) {
     var directorEl = document.querySelector(".dir-list");
     var mpaaEl = document.querySelector("#rating");
 
-
-    // Poster
     posterEl.setAttribute("src", movieData.Poster)
-    // Title
     movieTitleEl.textContent = movieData.Title;
-    // Plot
     plotEl.textContent = movieData.Plot;
-    // Director
     directorEl.textContent = movieData.Director
-    // MPAA
     mpaaEl.textContent = movieData.Rated
-    // Actors
     displayActors(movieData.Actors)
-    // Ratings
     displayRatings(movieData.Ratings)
 }
 
 function displayActors(actorString) {
     var actorListEl = document.querySelector(".actor-list");
-    // convert to array
     actors = actorString.split(", ");
     actorListEl.textContent = "";
-    for (actor of actors) {
+
+    for (var actor of actors) {
         var listItemEl = document.createElement("li");
         listItemEl.textContent = actor;
         actorListEl.appendChild(listItemEl);
@@ -112,25 +104,39 @@ function displayActors(actorString) {
 
 function displayRatings(ratingArr) {
     var ratingEl = document.querySelector(".score-list");
-    var i = 0;
+    ratingEl.textContent = "";
+    for(var rating of ratingArr){
+        if (rating.Source === "Internet Movie Database") {
+            rating.Source = "IMDB";
+        }
+        var listItemEl = document.createElement("li");
+        listItemEl.textContent = `${rating.Source}: ${rating.Value}`; // consider replacing names with icons
+       ratingEl.appendChild(listItemEl);
+    }
+    
+    /* var i = 0;
     $(ratingEl).children().each(function () {
         if (ratingArr[i].Source === "Internet Movie Database") {
             ratingArr[i].Source = "IMDB";
         }
         $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`) // consider replacing names with icons
         i++;
-    })
+    }) */
 }
 
 function displayGIFs(gifs){
     var i = 0;
     var gifEl = document.querySelector(".gif")
-    $(gifEl).children().each(function(){
-        var imgEl = $(this).find("iframe");
-        imgEl.attr("src",`${gifs[i].embed_url}`)
-        imgEl.attr("alt",`${gifs[i].title}`)
-        i++;
-    })
+    if(gifs.length===3)
+    {
+        $(gifEl).children().each(function(){
+            var imgEl = $(this).find("iframe");
+            imgEl.attr("src",`${gifs[i].embed_url}`)
+            imgEl.attr("alt",`${gifs[i].title}`)
+            i++;
+        })
+    }
+    
 }
 
 userFormEl.addEventListener("submit", formSubmitHandler);
