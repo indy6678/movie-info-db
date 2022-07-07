@@ -13,7 +13,7 @@
 <body>
     <header class="title flex justify-around bg-black">
         <div class="app-title">
-            <h1>Movie Info Database</h1>
+            <h1 class="text-2xl">Movie Info Database</h1>
         </div>
         <div class="search">
             <form id="search-form">
@@ -23,9 +23,11 @@
         </div>
     </header>
 
-    <!--    -->
+    <div class="hidden error">
+        <h1 class="font-bold text-3xl text-center">This is not a movie name! Please enter a proper movie name.</h1>
+    </div>
 
-    <main>
+    <main class="hidden main">
         <container class="movie flex flex-col items-center">
             <div class="poster">
                 <img src="https://via.placeholder.com/300x500" alt="Movie Poster" />
@@ -48,12 +50,10 @@
                 </ul>
 
             </div>
-            
-            <div class="rating">
-                <h3>MPAA Rating: <span id="rating"> </span></h3>
+            <div>
+                <h3>MPAA Rating: <span id="rating"></span></h3>
 
             </div>
-
             <div class="actor">
                 <h3>Starring:</h3>
                 <ul class="actor-list">
