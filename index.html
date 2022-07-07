@@ -6,84 +6,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie Info Database</title>
 </head>
 
 <body>
-    <header class="title flex justify-around bg-black">
+    <header class="container">
         <div class="app-title">
             <h1>Movie Info Database</h1>
         </div>
-        <div class="search">
-            <form id="search-form">
-                <input class="rounded-md" name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
-                <button type="submit" class="btn bg-green-500/100 rounded-md">Get Movie!</button>
+        <div class="container__item">
+            <form class="form">
+                <input type="text" class="form__field" name="search" id="search" placeholder="Enter Movie Name"
+                    autofocus="true" />
+                <button type="submit" class="btn btn--primary btn--inside uppercase">Get Movies</button>
             </form>
         </div>
     </header>
-    <main>
-        <container class="movie flex flex-col items-center">
-            <div class="poster">
-                <img src="https://via.placeholder.com/300x500" alt="Movie Poster" />
+    <main class="poster__container">
+        <div class="poster__card">
+            <div class="poster__img">
+                <img src="https://via.placeholder.com/300x500" alt="">
             </div>
-            <div class="movie-title">
-
+            <div class="poster__body">
+                <h2 class="poster__title">And the plot thickens...</h2>
+                <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint incidunt,
+                    obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo numquam facilis quod
+                    accusamus sequi aut laborum quisquam minus.</p>
             </div>
-            <div class="plot-desc">
-                <h3>And the plot thickens...</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum. </br>
-                     Nemo qui repudiandae temporibus assumenda autem. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo nesciunt doloribus iusto laboriosam illum architecto </br>
-                     dicta tenetur consequatur ab mollitia, rerum eveniet ipsam. Ea veritatis numquam est! Accusantium, autem enim.</p>
+            <div class="poster__footer">
+                <div class="poster__body">
+                    <p>Directed by: <span>someone</span></p>
+                    <p>MPAA Rating: <span>4.5</span></p>
+                </div>
+                <div>
+                    <p>Starring: <span>someone else
+                            <br />someone else's brother</span></p>
+                    <p>As good as it gets: <span>
+                            Rotten Tomatoes <br />
+                            Rotten Tomatoes <br />
+                            Google Users
+                        </span></p>
+                </div>
             </div>
-        </container>
-        <container class="info grid grid-cols-2 justify-items-center items-center">
-            <div class="director">
-                <h3>Directed by:</h3>
-                <ul class="dir-list">
-                    <li>someone</li>
-                </ul>
-
+        </div>
+        <div class="poster-cols">
+            <div class="poster-col">
+                <div class="poster__img-col">
+                    <img src="https://via.placeholder.com/300" alt="">
+                </div>
+                <div class="poster__body">
+                    <h2 class="poster__title">And the plot thickens...</h2>
+                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
+                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
+                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
+                </div>
             </div>
-            <div class="actor">
-                <h3>Starring:</h3>
-                <ul class="actor-list">
-                    <li>someone else</li>
-                    <li>someone else's brother</li>
-                </ul>
-
+            <div class="poster-col">
+                <div class="poster__img-col">
+                    <img src="https://via.placeholder.com/300" alt="">
+                </div>
+                <div class="poster__body">
+                    <h2 class="poster__title">And the plot thickens...</h2>
+                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
+                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
+                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
+                </div>
             </div>
-            <div class="rating">
-                <h3>MPAA Rating:</h3>
-
+            <div class="poster-col">
+                <div class="poster__img-col">
+                    <img src="https://via.placeholder.com/300" alt="">
+                </div>
+                <div class="poster__body">
+                    <h2 class="poster__title">And the plot thickens...</h2>
+                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
+                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
+                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
+                </div>
             </div>
-            <div class="score">
-                <h3>As good as it gets:</h3>
-                <ul class="score-list">
-                    <li>Rotten Tomatoes</li>
-                    <li>MetaCritic</li>
-                    <li>Google Users</li>
-                </ul>
-
-            </div>
-        </container>
-        <container class="gif grid grid-cols-3 justify-items-center">
-            <div class="gif-one">
-                <img src="https://via.placeholder.com/300" alt="One" />
-                <p>Name of first actor</p>
-            </div>
-            <div class="gif-two">
-                <img src="https://via.placeholder.com/300" alt="Two" />
-                <p>Name of second actor</p>
-            </div>
-            <div class="gif-three">
-                <img src="https://via.placeholder.com/300" alt="Three" />
-                <p>Name of third actor</p>
-            </div>
-        </container>
-
+        </div>
+        </div>
     </main>
-    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
