@@ -23,14 +23,22 @@ function getMovie(movie){
             response.json().then(function (data) {
                 if(data.Response==="True")
                 {
-                    movieApi = data;
-                    console.log(data);
-                    displayMovieInfo(data);
-                    movieApi = data;
-                    genres= data.Genre.split(", ");
+                    if(data.Director!=="N/A")
+                    {
+                        movieApi = data;
+                        console.log(data);
+                        displayMovieInfo(data);
+                        movieApi = data;
+                        genres= data.Genre.split(", ");
+                    }
+                    else{
+                        // return "Sorry that's (probably) a TV show not a movie"
+                        console.log("Sorry, that's not a movie, please try again.")
+                    }
                 }
                 else{
                     // return data.Error somewhere
+                    console.log(data.Error)
                 }
             });
         }
@@ -47,7 +55,7 @@ function displayMovieInfo(movieData){
     var directorEl = document.querySelector(".dir-list");
     var mpaaEl = document.querySelector("#rating");
     
-    var ratingEl = document.querySelector(".score-list");
+    
     // Poster
     posterEl.setAttribute("src",movieData.Poster)
     // Title
@@ -61,6 +69,7 @@ function displayMovieInfo(movieData){
     // Actors
     displayActors(movieData.Actors)
     // Ratings
+    displayRatings(movieData.Ratings)
 }
 
 function displayActors(actorString){
@@ -73,10 +82,19 @@ function displayActors(actorString){
         listItemEl.textContent = actor;
         actorListEl.appendChild(listItemEl);
     }
-    // for each item
-        // create an li
-        // set text to value
-        // append to ul
+
+}
+
+function displayRatings(ratingArr){
+    var ratingEl = document.querySelector(".score-list");
+    var i = 0;
+    $(ratingEl).children().each(function(){
+        if(ratingArr[i].Source === "Internet Movie Database"){
+            ratingArr[i].Source = "IMDB";
+        }
+        $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`)
+        i++;
+    })
 }
 
 userFormEl.addEventListener("submit", formSubmitHandler);
