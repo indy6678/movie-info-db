@@ -1,9 +1,11 @@
-var userFormEl = document.querySelector("#search-form")
-var movieInputEl = document.querySelector("#search")
+var userFormEl = document.querySelector("#search-form");
+var movieInputEl = document.querySelector("#search");
+
+var mainBodyEl = document.querySelector(".main");
+var errorMessageEl = document.querySelector(".error")
 
 var genres = [];
-
-var movieApi;
+var movieApi; // delete later
 
 function formSubmitHandler(event) {
     event.preventDefault();
@@ -26,19 +28,27 @@ function getMovie(movie){
                     if(data.Director!=="N/A")
                     {
                         movieApi = data;
-                        console.log(data);
+                        console.log(data); // delete
                         displayMovieInfo(data);
-                        movieApi = data;
+                        movieApi = data; // delete later
                         genres= data.Genre.split(", ");
+                        errorMessageEl.classList.add("hidden");
+                        mainBodyEl.classList.remove("hidden");
+
+
                     }
                     else{
                         // return "Sorry that's (probably) a TV show not a movie"
-                        console.log("Sorry, that's not a movie, please try again.")
+                        mainBodyEl.classList.add("hidden");
+                        errorMessageEl.classList.remove("hidden");
+                        errorMessageEl.textContent = "Sorry, that's not a movie, please try again.";
                     }
                 }
                 else{
                     // return data.Error somewhere
-                    console.log(data.Error)
+                    mainBodyEl.classList.add("hidden");
+                    errorMessageEl.classList.remove("hidden");
+                    errorMessageEl.textContent = data.Error;
                 }
             });
         }
