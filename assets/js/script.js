@@ -6,45 +6,43 @@ var errorMessageEl = document.querySelector(".error")
 
 var genres = [];
 var movieApi; // delete later
+var giphyApi; // delete later
 
 function formSubmitHandler(event) {
     event.preventDefault();
     var movie = movieInputEl.value.trim();
-    if(movie) {
+    if (movie) {
         getMovie(movie);
         movieInputEl.value = "";
     }
 }
 
 // API call
-function getMovie(movie){
+function getMovie(movie) {
     var apiUrl = `http://www.omdbapi.com/?apikey=5af37e64&t=${movie}&plot=full`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                if(data.Response==="True")
-                {
-                    if(data.Director!=="N/A")
-                    {
+                if (data.Response === "True") {
+                    if (data.Director !== "N/A") {
                         movieApi = data;
                         console.log(data); // delete
                         displayMovieInfo(data);
-                        movieApi = data; // delete later
-                        genres= data.Genre.split(", ");
+                        genres = data.Genre.split(", ");
                         errorMessageEl.classList.add("hidden");
                         mainBodyEl.classList.remove("hidden");
-
+                        giphyCall(data.Title)
 
                     }
-                    else{
+                    else {
                         // return "Sorry that's (probably) a TV show not a movie"
                         mainBodyEl.classList.add("hidden");
                         errorMessageEl.classList.remove("hidden");
                         errorMessageEl.textContent = "Sorry, we couldn't find that movie, please double check your spelling and try again.";
                     }
                 }
-                else{
+                else {
                     // return data.Error somewhere
                     mainBodyEl.classList.add("hidden");
                     errorMessageEl.classList.remove("hidden");
@@ -57,19 +55,36 @@ function getMovie(movie){
         }
     });
 }
+
+function giphyCall(movie) {
+    var apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=8Z9tt3zqMkMtVaUWPc9A312eDimiETLx&q=${movie}&limit=3&offset=0&rating=pg&lang=en`
+
+    fetch(apiUrl).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                giphyApi = data;
+                console.log(data); // delete
+            });
+        }
+        else {
+
+        }
+    });
+}
+
 // Display Movie Info
-function displayMovieInfo(movieData){
+function displayMovieInfo(movieData) {
     var posterEl = document.querySelector(".poster").querySelector("img");
     var movieTitleEl = document.querySelector(".movie-title")
     var plotEl = document.querySelector(".plot-desc");
     var directorEl = document.querySelector(".dir-list");
     var mpaaEl = document.querySelector("#rating");
-    
-    
+
+
     // Poster
-    posterEl.setAttribute("src",movieData.Poster)
+    posterEl.setAttribute("src", movieData.Poster)
     // Title
-    movieTitleEl.textContent= movieData.Title;
+    movieTitleEl.textContent = movieData.Title;
     // Plot
     plotEl.textContent = movieData.Plot;
     // Director
@@ -82,27 +97,26 @@ function displayMovieInfo(movieData){
     displayRatings(movieData.Ratings)
 }
 
-function displayActors(actorString){
+function displayActors(actorString) {
     var actorListEl = document.querySelector(".actor-list");
     // convert to array
     actors = actorString.split(", ");
     actorListEl.textContent = "";
-    for(actor of actors){
+    for (actor of actors) {
         var listItemEl = document.createElement("li");
         listItemEl.textContent = actor;
         actorListEl.appendChild(listItemEl);
     }
-
 }
 
-function displayRatings(ratingArr){
+function displayRatings(ratingArr) {
     var ratingEl = document.querySelector(".score-list");
     var i = 0;
-    $(ratingEl).children().each(function(){
-        if(ratingArr[i].Source === "Internet Movie Database"){
+    $(ratingEl).children().each(function () {
+        if (ratingArr[i].Source === "Internet Movie Database") {
             ratingArr[i].Source = "IMDB";
         }
-        $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`)
+        $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`) // consider replacing names with icons
         i++;
     })
 }
