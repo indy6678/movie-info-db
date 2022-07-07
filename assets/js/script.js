@@ -62,8 +62,9 @@ function giphyCall(movie) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                giphyApi = data;
-                console.log(data); // delete
+                giphyApi = data.data;
+                console.log(data.data); // delete
+                displayGIFs(data.data);
             });
         }
         else {
@@ -117,6 +118,17 @@ function displayRatings(ratingArr) {
             ratingArr[i].Source = "IMDB";
         }
         $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`) // consider replacing names with icons
+        i++;
+    })
+}
+
+function displayGIFs(gifs){
+    var i = 0;
+    var gifEl = document.querySelector(".gif")
+    $(gifEl).children().each(function(){
+        var imgEl = $(this).find("iframe");
+        imgEl.attr("src",`${gifs[i].embed_url}`)
+        imgEl.attr("alt",`${gifs[i].title}`)
         i++;
     })
 }
