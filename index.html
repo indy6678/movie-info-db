@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <header class="title flex justify-around bg-black">
+    <header class="title flex flex-col items-center sm:flex-row sm:justify-around bg-black">
         <div class="app-title">
             <h1 class="text-2xl">Movie Info Database</h1>
         </div>
         <div class="search">
             <form id="search-form">
-                <input class="rounded-md" name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
-                <button type="submit" class="btn bg-green-500/100 rounded-md">Get Movie!</button>
+                <input class="rounded-md my-3" name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
+                <button type="submit" class="btn bg-green-500/100 rounded-md font-bold hover:text-amber-400">Show me the movie!</button>
             </form>
         </div>
     </header>
@@ -29,32 +29,32 @@
 
     <main class="hidden main">
         <container class="movie flex flex-col items-center">
-            <div class="poster">
+            <div class="poster my-5">
                 <img src="https://via.placeholder.com/300x500" alt="Movie Poster" />
             </div>
             <div class="movie-title">
-
+                <p>Movie Title</p>
             </div>
-            <div class="plot-desc">
+            <div class="plot-desc w-96 sm:w-4/5">
                 <h3>And the plot thickens...</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum. </br>
-                     Nemo qui repudiandae temporibus assumenda autem. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo nesciunt doloribus iusto laboriosam illum architecto </br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum.
+                     Nemo qui repudiandae temporibus assumenda autem. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo nesciunt doloribus iusto laboriosam illum architecto
                      dicta tenetur consequatur ab mollitia, rerum eveniet ipsam. Ea veritatis numquam est! Accusantium, autem enim.</p>
             </div>
         </container>
-        <container class="info grid grid-cols-2 justify-items-center items-center">
-            <div class="director">
+        <container class="info grid gap-1.5 sm:grid-cols-2 justify-items-center sm:items-center my-5">
+            <div class="director border-solid border-2 w-64 h-16">
                 <h3>Directed by:</h3>
                 <ul class="dir-list">
                     <li>someone</li>
                 </ul>
 
             </div>
-            <div>
+            <div class="border-solid border-2 w-64 h-16">
                 <h3>MPAA Rating: <span id="rating"></span></h3>
 
             </div>
-            <div class="actor">
+            <div class="actor border-solid border-2 w-64 h-32">
                 <h3>Starring:</h3>
                 <ul class="actor-list">
 
@@ -62,7 +62,7 @@
 
             </div>
             
-            <div class="score">
+            <div class="score border-solid border-2 w-64 h-32">
                 <h3>As good as it gets:</h3>
                 <ul class="score-list">
                     <li>IMDB</li>
@@ -72,7 +72,7 @@
                 
             </div>
         </container>
-        <container class="gif grid grid-cols-3 justify-items-center">
+        <container class="gif grid gap-1.5 items-center md:grid-cols-3 justify-items-center">
             <div class="gif-one">
                 <iframe src="https://via.placeholder.com/300" alt="One" ></iframe>
 
