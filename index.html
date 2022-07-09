@@ -16,76 +16,64 @@
         </div>
         <div class="container__item">
             <form class="form">
-                <input type="text" class="form__field" name="search" id="search" placeholder="Enter Movie Name"
-                    autofocus="true" />
+                <input type="text" class="form__field" name="search" placeholder="Enter Movie Name" autofocus="true" />
                 <button type="submit" class="btn btn--primary btn--inside uppercase">Get Movies</button>
             </form>
         </div>
     </header>
-    <main class="poster__container">
-        <div class="poster__card">
+    <main class="poster__container" id="poster">
+        <div class="poster__card" id="poster__card">
             <div class="poster__img">
-                <img src="https://via.placeholder.com/300x500" alt="">
+                <img src="https://via.placeholder.com/300x500" alt="" id="poster__img">
             </div>
             <div class="poster__body">
-                <h2 class="poster__title">And the plot thickens...</h2>
-                <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint incidunt,
-                    obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo numquam facilis quod
-                    accusamus sequi aut laborum quisquam minus.</p>
+                <h2 class="poster__title" id="poster__title"></h2>
+                <p class="poster__plot" id="poster__plot"></p>
             </div>
             <div class="poster__footer">
                 <div class="poster__body">
-                    <p>Directed by: <span>someone</span></p>
-                    <p>MPAA Rating: <span>4.5</span></p>
+                    <p>Directed by: <span id="poster__director"></span></p>
+                    <p>Rated: <span id="poster_rated"></span></p>
                 </div>
                 <div>
-                    <p>Starring: <span>someone else
-                            <br />someone else's brother</span></p>
-                    <p>As good as it gets: <span>
-                            Rotten Tomatoes <br />
-                            Rotten Tomatoes <br />
-                            Google Users
-                        </span></p>
+                    <p>Actors: <span id="poster__actors"></span></p>
+                    <p>Ratings: <span id="poster_rating"></span></p>
                 </div>
             </div>
         </div>
-        <div class="poster-cols">
-            <div class="poster-col">
-                <div class="poster__img-col">
-                    <img src="https://via.placeholder.com/300" alt="">
+        <div class="errorMessageEl hidden" id="errorMessageEl"></div>
+
+        <div class="giphy-cols" id="giphy-cols">
+            <div class="giphy-col">
+                <div class="giphy__img-col">
+                    <img src="https://via.placeholder.com/300" alt="" id="giphy__img-col-1">
                 </div>
-                <div class="poster__body">
-                    <h2 class="poster__title">And the plot thickens...</h2>
-                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
-                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
-                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
-                </div>
-            </div>
-            <div class="poster-col">
-                <div class="poster__img-col">
-                    <img src="https://via.placeholder.com/300" alt="">
-                </div>
-                <div class="poster__body">
-                    <h2 class="poster__title">And the plot thickens...</h2>
-                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
-                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
-                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
+                <div class="giphy__body">
+                    <p class="giphy__title" id="giphy__title-1">And the plot thickens...</p>
                 </div>
             </div>
-            <div class="poster-col">
-                <div class="poster__img-col">
-                    <img src="https://via.placeholder.com/300" alt="">
+            <div class="giphy-col">
+                <div class="giphy__img-col">
+                    <img src="https://via.placeholder.com/300" alt="" id="giphy__img-col-2">
                 </div>
-                <div class="poster__body">
-                    <h2 class="poster__title">And the plot thickens...</h2>
-                    <p class="poster__intro"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sint
-                        incidunt, obcaecati non voluptatem cupiditate magnam, tempora dicta, aspernatur ullam quo
-                        numquam facilis quod accusamus sequi aut laborum quisquam minus.</p>
+                <div class="giphy__body">
+                    <p class="giphy__title" id="giphy__title-2">And the plot thickens...</p>
+                </div>
+            </div>
+            <div class="giphy-col">
+                <div class="giphy__img-col">
+                    <img src="https://via.placeholder.com/300" alt="" id="giphy__img-col-3">
+                </div>
+                <div class="giphy__body">
+                    <p class="giphy__title" id="giphy__title-3">And the plot thickens...</p2>
                 </div>
             </div>
         </div>
         </div>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
