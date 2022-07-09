@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    
+
     <title>Movie Info Database</title>
 </head>
 
@@ -17,8 +17,13 @@
         </div>
         <div class="search">
             <form id="search-form">
-                <input class="rounded-md my-3" name="search" id="search" type="text" placeholder="Enter Movie Name" autofocus="true" />
-                <button type="submit" class="btn bg-green-500/100 rounded-md font-bold hover:text-amber-400">Show me the movie!</button>
+                <div class="search-contaner">
+                    <div><input class="rounded-md my-3" name="search" id="search" type="text"
+                            placeholder="Enter Movie Name" autofocus="true" /></div>
+                    <div><button type="submit"
+                            class="btn bg-green-500/100 rounded-md font-bold hover:text-amber-400">Show me the
+                            movie!</button></div>
+                </div>
             </form>
         </div>
     </header>
@@ -37,9 +42,12 @@
             </div>
             <div class="plot-desc w-96 sm:w-4/5">
                 <h3>And the plot thickens...</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto earum molestias, beatae omnis hic minus aut natus cum rerum.
-                     Nemo qui repudiandae temporibus assumenda autem. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo nesciunt doloribus iusto laboriosam illum architecto
-                     dicta tenetur consequatur ab mollitia, rerum eveniet ipsam. Ea veritatis numquam est! Accusantium, autem enim.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a eaque quasi labore? Architecto
+                    earum molestias, beatae omnis hic minus aut natus cum rerum.
+                    Nemo qui repudiandae temporibus assumenda autem. Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Illo nesciunt doloribus iusto laboriosam illum architecto
+                    dicta tenetur consequatur ab mollitia, rerum eveniet ipsam. Ea veritatis numquam est! Accusantium,
+                    autem enim.</p>
             </div>
         </container>
         <container class="info grid gap-1.5 sm:grid-cols-2 justify-items-center sm:items-center my-5">
@@ -50,7 +58,7 @@
                 </ul>
 
             </div>
-            <div class="border-solid border-2 w-64 h-16">
+            <div class="mpaaRating border-solid border-2 w-64 h-16">
                 <h3>MPAA Rating: <span id="rating"></span></h3>
 
             </div>
@@ -61,7 +69,7 @@
                 </ul>
 
             </div>
-            
+
             <div class="score border-solid border-2 w-64 h-32">
                 <h3>As good as it gets:</h3>
                 <ul class="score-list">
@@ -69,20 +77,20 @@
                     <li>Rotten Tomatoes</li>
                     <li>MetaCritic</li>
                 </ul>
-                
+
             </div>
         </container>
         <container class="gif grid gap-1.5 items-center md:grid-cols-3 justify-items-center">
             <div class="gif-one">
-                <iframe src="https://via.placeholder.com/300" alt="One" ></iframe>
+                <iframe src="https://via.placeholder.com/300" alt="One"></iframe>
 
             </div>
             <div class="gif-two">
-                <iframe src="https://via.placeholder.com/300" alt="Two" ></iframe>
+                <iframe src="https://via.placeholder.com/300" alt="Two"></iframe>
 
             </div>
             <div class="gif-three">
-                <iframe src="https://via.placeholder.com/300" alt="Three" ></iframe>
+                <iframe src="https://via.placeholder.com/300" alt="Three"></iframe>
 
             </div>
         </container>
