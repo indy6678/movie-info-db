@@ -4,9 +4,6 @@ var movieInputEl = document.querySelector("#search");
 var mainBodyEl = document.querySelector(".main");
 var errorMessageEl = document.querySelector(".error")
 
-var genres = [];
-var movieApi; // delete later
-var giphyApi; // delete later
 
 function formSubmitHandler(event) {
     event.preventDefault();
@@ -26,10 +23,7 @@ function getMovie(movie){
             response.json().then(function (data) {
                 if (data.Response === "True") {
                     if (data.Director !== "N/A") {
-                        movieApi = data;
-                        console.log(data); // delete
                         displayMovieInfo(data);
-                        genres = data.Genre.split(", ");
                         errorMessageEl.classList.add("hidden");
                         mainBodyEl.classList.remove("hidden");
                         giphyCall(data.Title)
@@ -62,13 +56,11 @@ function giphyCall(movie) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                giphyApi = data.data;
-                console.log(data.data); // delete
                 displayGIFs(data.data);
             });
         }
         else {
-
+            clearGIFs();
         }
     });
 }
@@ -98,7 +90,7 @@ function displayMovieInfo(movieData) {
 
 function displayActors(actorString) {
     var actorListEl = document.querySelector(".actor-list");
-    actors = actorString.split(", ");
+    var actors = actorString.split(", ");
     actorListEl.textContent = "";
 
     for (var actor of actors) {
@@ -119,15 +111,6 @@ function displayRatings(ratingArr) {
         listItemEl.textContent = `${rating.Source}: ${rating.Value}`; // consider replacing names with icons
        ratingEl.appendChild(listItemEl);
     }
-    
-    /* var i = 0;
-    $(ratingEl).children().each(function () {
-        if (ratingArr[i].Source === "Internet Movie Database") {
-            ratingArr[i].Source = "IMDB";
-        }
-        $(this).text(`${ratingArr[i].Source}: ${ratingArr[i].Value}`) // consider replacing names with icons
-        i++;
-    }) */
 }
 
 function displayGIFs(gifs){
@@ -141,8 +124,20 @@ function displayGIFs(gifs){
             imgEl.attr("alt",`${gifs[i].title}`)
             i++;
         })
+    }  
+    else{
+        clearGIFs();
     }
-    
+}
+
+function clearGIFs(){
+    var gifEl = document.querySelector(".gif")
+
+    $(gifEl).children().each(function(){
+        var imgEl = $(this).find("iframe");
+        imgEl.attr("src",` `)
+        imgEl.attr("alt",` `)
+    })
 }
 
 userFormEl.addEventListener("submit", formSubmitHandler);
