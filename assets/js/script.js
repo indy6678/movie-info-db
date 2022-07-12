@@ -14,6 +14,8 @@ function formSubmitHandler(event) {
         
         // save search to localstorage
         addtosrch(movie);
+    } else {
+        errorMessageEl.classList.remove("hidden");
     }
 }
 
