@@ -11,6 +11,11 @@ function formSubmitHandler(event) {
     if (movie) {
         getMovie(movie);
         movieInputEl.value = "";
+        
+        // save search to localstorage
+        addtosrch(movie);
+    } else {
+        errorMessageEl.classList.remove("hidden");
     }
 }
 
@@ -138,6 +143,27 @@ function clearGIFs(){
         imgEl.attr("src",` `)
         imgEl.attr("alt",` `)
     })
+}
+
+// adds search history into localstoraga
+var addtosrch = function(movie) {
+    var srchLst = {
+        movie: []
+    }
+    // check to see if there is a search history in localstorage
+    if (!localStorage.getItem("moviesrch")) {
+        // add movie name to srchLst array
+    srchLst['movie'].push(movie);
+
+    // set srchLst array movie value into localstorage
+    localStorage.setItem("moviesrch",srchLst.movie);
+        
+    } else {
+        // adds current search to existing search list in localstorage 
+        var strge = localStorage.getItem("moviesrch");
+        var strgeupd = strge + "," + movie;
+        localStorage.setItem("moviesrch",strgeupd);
+    }    
 }
 
 userFormEl.addEventListener("submit", formSubmitHandler);
