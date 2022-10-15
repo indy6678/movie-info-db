@@ -12,7 +12,7 @@ Simply enter a movie title into the search field and click the search button!
 
 Check it out [here.](https://indy6678.github.io/movie-info-db/)
 
-![Movie Info Database](./assets/images/MID-screenshot.png)
+![Movie Info Database](./assets/images/movie-info-db.png)
 
 ## APIs Employed
 
